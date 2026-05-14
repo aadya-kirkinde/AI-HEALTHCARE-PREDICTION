@@ -2,6 +2,8 @@
 
 Real-time disease outbreak monitoring, intelligence analysis, and threat tracking system. Built for public health analysts, biosecurity teams, and epidemiologists.
 
+Live demo: https://solvr-hantavirus-tracker-main.vercel.app/
+
 ## Architecture
 
 ```
@@ -88,7 +90,7 @@ outbreakos/
     ├── rag.py             # RAG query engine
     ├── requirements.txt   # Python dependencies
     ├── start.sh           # Linux/macOS startup script
-    └── start.bat           # Windows startup script
+    └── start.bat          # Windows startup script
 ```
 
 ## Features
