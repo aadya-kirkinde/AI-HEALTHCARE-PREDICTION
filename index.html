@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OutbreakOS · Global Outbreak Intelligence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
+  <link rel="stylesheet" href="colors_and_type.css">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+  <script src="https://unpkg.com/three@0.155.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+  <script src="auth.js"></script>
+  <script src="globe.js"></script>
+  <script type="text/babel" data-presets="react" src="LoginView.jsx?v=52"></script>
+  <script type="text/babel" data-presets="react" src="SignupView.jsx?v=52"></script>
+  <script type="text/babel" data-presets="react" src="SettingsDrawer.jsx?v=52"></script>
+  <script type="text/babel" data-presets="react" src="MapPanel.jsx?v=52"></script>
+  <script type="text/babel" data-presets="react" src="App.jsx?v=52"></script>
+  <script>
+window.__babelErrors = [];
+var _origErr = console.error;
+console.error = function() {
+  var args = Array.prototype.slice.call(arguments).join(' ');
+  window.__babelErrors.push(args);
+  try {
+    var div = document.createElement('div');
+    div.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#300;color:#f66;font-family:monospace;font-size:11px;padding:8px;z-index:99999;white-space:pre-wrap;max-height:200px;overflow:auto';
+    div.textContent = args.slice(0, 500);
+    document.body.appendChild(div);
+  } catch(e) {}
+  _origErr.apply(console, arguments);
+};
+window.onerror = function(msg, src, line, col, err) {
+  if (src && src.indexOf('babel') !== -1 || (msg && msg.toLowerCase().indexOf('babel') !== -1)) return;
+  try {
+    var div = document.createElement('div');
+    div.style.cssText = 'position:fixed;bottom:30px;left:0;right:0;background:#300;color:#f66;font-family:monospace;font-size:11px;padding:8px;z-index:99999;white-space:pre-wrap;max-height:200px;overflow:auto';
+    div.textContent = msg + ' (' + src + ':' + line + ')';
+    document.body.appendChild(div);
+  } catch(e) {}
+};
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var root = document.getElementById('root');
+    if (root && root.children.length === 0 && root.childNodes.length === 0) {
+      var errDiv = document.createElement('div');
+      errDiv.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#200;color:#f66;font-family:monospace;font-size:12px;padding:16px;z-index:99999';
+      errDiv.textContent = 'React rendered nothing. Errors: ' + (window.__babelErrors.length ? window.__babelErrors.slice(0,3).join(' | ') : 'none');
+      document.body.appendChild(errDiv);
+    }
+  }, 15000);
+});
+  </script>
+</body>
+</html>
